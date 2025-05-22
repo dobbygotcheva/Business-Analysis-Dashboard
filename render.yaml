@@ -2,7 +2,7 @@ services:
   - type: web
     name: business-analytics-dashboard
     env: node
-    buildCommand: apt-get update && apt-get install -y openjdk-11-jdk && chmod +x ./gradlew && ./gradlew build
+    buildCommand: chmod +x ./gradlew && ./gradlew build
     startCommand: java -jar build/libs/demo-0.0.1-SNAPSHOT.jar
     healthCheckPath: /health
     envVars:
