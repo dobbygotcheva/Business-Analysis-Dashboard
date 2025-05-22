@@ -49,4 +49,4 @@ ENV JAVAX_FACES_FACELETS_DEVELOPMENT=false
 EXPOSE 8081
 
 # Run the application using Spring Boot launcher with explicit view configuration
-CMD ["sh", "-c", "cd /app && java -jar build/libs/demo-0.0.1-SNAPSHOT.war --server.port=${PORT} --joinfaces.views.path-prefix=/ --joinfaces.views.path-suffix=.xhtml --server.servlet.context-path=/"] 
+CMD ["sh", "-c", "cd /app && java -jar build/libs/demo-0.0.1-SNAPSHOT.war --server.port=${PORT} --joinfaces.views.path-prefix=/ --joinfaces.views.path-suffix=.xhtml --server.servlet.context-path=/ --server.address=0.0.0.0"] 
