@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: business-analytics-dashboard
+    env: java
+    buildCommand: ./gradlew build
+    startCommand: java -jar build/libs/demo-0.0.1-SNAPSHOT.war
+    envVars:
+      - key: JAVA_VERSION
+        value: 11
+      - key: PORT
+        value: 8081 
