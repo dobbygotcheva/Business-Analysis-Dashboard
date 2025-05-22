@@ -48,5 +48,5 @@ ENV JAVAX_FACES_FACELETS_DEVELOPMENT=false
 # Expose the port
 EXPOSE 8081
 
-# Run the application with the correct WAR path
-CMD ["sh", "-c", "echo 'Current directory:' && pwd && echo 'Listing build directory:' && ls -la build/ && echo 'Listing libs directory:' && ls -la build/libs/ && WAR_FILE=$(ls build/libs/*.war) && echo 'Found WAR file:' $WAR_FILE && java -jar $WAR_FILE"] 
+# Run the application with the correct executable WAR
+CMD ["sh", "-c", "echo 'Current directory:' && pwd && echo 'Listing build directory:' && ls -la build/ && echo 'Listing libs directory:' && ls -la build/libs/ && java -jar build/libs/demo-0.0.1-SNAPSHOT.war"] 
