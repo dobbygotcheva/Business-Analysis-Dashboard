@@ -7,11 +7,15 @@ services:
       yarn install
     startCommand: |
       java -jar build/libs/demo-0.0.1-SNAPSHOT.jar &
+      sleep 30
       yarn start
+    healthCheckPath: /
     envVars:
       - key: NODE_VERSION
         value: 18
       - key: PORT
         value: 8081
       - key: JAVA_VERSION
-        value: 11 
+        value: 11
+      - key: SERVER_PORT
+        value: 8080 
