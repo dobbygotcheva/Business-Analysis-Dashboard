@@ -16,8 +16,11 @@ RUN chmod +x ./gradlew
 # Copy source code
 COPY src src
 
-# Build the application and verify the JAR file
-RUN ./gradlew build && \
+# Build the application with verbose output
+RUN ./gradlew clean build --info && \
+    echo "Listing build directory:" && \
+    ls -la build/ && \
+    echo "Listing libs directory:" && \
     ls -la build/libs/
 
 # Set environment variables
@@ -45,5 +48,5 @@ ENV JAVAX_FACES_FACELETS_DEVELOPMENT=false
 # Expose the port
 EXPOSE 8081
 
-# Run the application with the correct JAR path
-CMD ["sh", "-c", "JAR_FILE=$(ls build/libs/*.jar) && java -jar $JAR_FILE"] 
+# Run the application with the correct WAR path
+CMD ["sh", "-c", "echo 'Current directory:' && pwd && echo 'Listing build directory:' && ls -la build/ && echo 'Listing libs directory:' && ls -la build/libs/ && WAR_FILE=$(ls build/libs/*.war) && echo 'Found WAR file:' $WAR_FILE && java -jar $WAR_FILE"] 
