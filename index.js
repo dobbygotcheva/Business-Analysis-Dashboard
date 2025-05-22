@@ -1,16 +1,17 @@
 const express = require('express');
-const path = require('path');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
 const port = process.env.PORT || 8081;
 
-// Serve static files from the build directory
-app.use(express.static(path.join(__dirname, 'build')));
-
-// Handle all routes by serving index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// Proxy all requests to the Spring Boot application
+app.use('/', createProxyMiddleware({
+    target: 'http://localhost:8080',
+    changeOrigin: true,
+    pathRewrite: {
+        '^/': '/'
+    }
+}));
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Proxy server is running on port ${port}`);
 }); 

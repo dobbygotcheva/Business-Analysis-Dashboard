@@ -2,10 +2,16 @@ services:
   - type: web
     name: business-analytics-dashboard
     env: node
-    buildCommand: yarn install
-    startCommand: yarn start
+    buildCommand: |
+      ./gradlew build
+      yarn install
+    startCommand: |
+      java -jar build/libs/demo-0.0.1-SNAPSHOT.jar &
+      yarn start
     envVars:
       - key: NODE_VERSION
         value: 18
       - key: PORT
-        value: 8081 
+        value: 8081
+      - key: JAVA_VERSION
+        value: 11 
