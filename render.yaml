@@ -2,12 +2,47 @@ services:
   - type: web
     name: business-analytics-dashboard
     env: node
-    buildCommand: |
-      apt-get update && apt-get install -y openjdk-11-jdk
-      chmod +x ./gradlew
-      ./gradlew build
+    buildCommand: apt-get update && apt-get install -y openjdk-11-jdk && chmod +x ./gradlew && ./gradlew build
     startCommand: java -jar build/libs/demo-0.0.1-SNAPSHOT.jar
     healthCheckPath: /health
     envVars:
       - key: PORT
         value: 8081
+      - key: SPRING_APPLICATION_NAME
+        value: demo
+      - key: SERVER_SERVLET_CONTEXT_PATH
+        value: /
+      - key: JOINFACES_PRIMEFACES_THEME
+        value: saga
+      - key: JOINFACES_PRIMEFACES_FONT_AWESOME
+        value: "true"
+      - key: JOINFACES_VIEWS_PATH_PREFIX
+        value: /
+      - key: JOINFACES_VIEWS_PATH_SUFFIX
+        value: .xhtml
+      - key: JOINFACES_JSF_PROJECT_STAGE
+        value: Production
+      - key: JOINFACES_JSF_FACELETS_SKIP_COMMENTS
+        value: "true"
+      - key: LOGGING_LEVEL_ORG_JOINFACES
+        value: INFO
+      - key: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK
+        value: INFO
+      - key: LOGGING_LEVEL_COM_EXAMPLE_DEMO
+        value: INFO
+      - key: PRIMEFACES_THEME
+        value: saga
+      - key: PRIMEFACES_FONT_AWESOME
+        value: "true"
+      - key: PRIMEFACES_UPLOADER
+        value: commons
+      - key: PRIMEFACES_CLIENT_SIDE_VALIDATION
+        value: "true"
+      - key: JAVAX_FACES_PROJECT_STAGE
+        value: Production
+      - key: JAVAX_FACES_FACELETS_SKIP_COMMENTS
+        value: "true"
+      - key: JAVAX_FACES_FACELETS_BUFFER_SIZE
+        value: "65535"
+      - key: JAVAX_FACES_FACELETS_DEVELOPMENT
+        value: "false"
