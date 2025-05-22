@@ -48,5 +48,5 @@ ENV JAVAX_FACES_FACELETS_DEVELOPMENT=false
 # Expose the port
 EXPOSE 8081
 
-# Run the application with the correct executable WAR
-CMD ["sh", "-c", "echo 'Current directory:' && pwd && echo 'Listing build directory:' && ls -la build/ && echo 'Listing libs directory:' && ls -la build/libs/ && java -jar build/libs/demo-0.0.1-SNAPSHOT.war"] 
+# Run the application using Spring Boot launcher
+CMD ["sh", "-c", "cd /app && java -jar build/libs/demo-0.0.1-SNAPSHOT.war --server.port=${PORT}"] 
