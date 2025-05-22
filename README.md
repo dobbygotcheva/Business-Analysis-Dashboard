@@ -39,4 +39,4 @@ A modern business analytics dashboard built with Spring Boot, JSF, and PrimeFace
 
 ## License
 
-This project is licensed under the MIT License.
+This project is open source. Feel free to use the code.
