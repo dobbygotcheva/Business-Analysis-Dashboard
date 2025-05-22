@@ -1,12 +1,13 @@
 services:
   - type: web
     name: business-analytics-dashboard
-    env: java
-    buildCommand: /bin/chmod +x ./gradlew && ./gradlew build
+    env: node
+    buildCommand: |
+      apt-get update && apt-get install -y openjdk-11-jdk
+      chmod +x ./gradlew
+      ./gradlew build
     startCommand: java -jar build/libs/demo-0.0.1-SNAPSHOT.jar
     healthCheckPath: /health
     envVars:
-      - key: JAVA_VERSION
-        value: 11
       - key: PORT
         value: 8081
