@@ -5,11 +5,9 @@ services:
     buildCommand: |
       ./gradlew build
       yarn install
-    startCommand: |
-      java -jar build/libs/demo-0.0.1-SNAPSHOT.jar &
-      sleep 30
-      yarn start
-    healthCheckPath: /
+      chmod +x start.sh
+    startCommand: ./start.sh
+    healthCheckPath: /health
     envVars:
       - key: NODE_VERSION
         value: 18
