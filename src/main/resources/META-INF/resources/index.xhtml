@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Business Analytics Dashboard</title>
+    <h:outputStylesheet name="styles.css"/>
+</h:head>
+
+<h:body>
+    <div class="container">
+        <div class="header">
+            <h1>Business Analytics Dashboard</h1>
+            <p>A comprehensive view of business performance, product distribution, and seasonal trends</p>
+        </div>
+
+        <div class="summary-stats">
+            <div class="stat-card">
+                <i class="pi pi-dollar"></i>
+                <div class="stat-content">
+                    <h3>Annual Revenue</h3>
+                    <p class="stat-value">$2.8M</p>
+                    <p class="stat-change positive">+12.5% from last year</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="pi pi-shopping-cart"></i>
+                <div class="stat-content">
+                    <h3>Total Orders</h3>
+                    <p class="stat-value">24,521</p>
+                    <p class="stat-change positive">+8.3% from last year</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <i class="pi pi-users"></i>
+                <div class="stat-content">
+                    <h3>Active Customers</h3>
+                    <p class="stat-value">12,845</p>
+                    <p class="stat-change positive">+15.2% from last year</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="chart-container">
+                <h2>Monthly Sales Performance</h2>
+                <p>Track your monthly sales performance over time</p>
+                <p:chart type="bar" model="#{chartBean.barModel}" style="width: 100%; height: 300px"/>
+            </div>
+
+            <div class="chart-container">
+                <h2>Product Category Distribution</h2>
+                <p>Analyze the distribution of sales across product categories</p>
+                <p:chart type="pie" model="#{chartBean.pieModel}" style="width: 100%; height: 300px"/>
+            </div>
+
+            <div class="chart-container">
+                <h2>Seasonal Temperature Trends</h2>
+                <p>Understand how seasonal temperature changes affect your business</p>
+                <p:chart type="line" model="#{chartBean.lineModel}" style="width: 100%; height: 300px"/>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2023 Business Analytics Dashboard. All data is simulated for demonstration purposes.</p>
+        </div>
+    </div>
+</h:body>
+</html>
