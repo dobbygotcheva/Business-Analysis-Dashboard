@@ -1,6 +1,7 @@
 # Business Analytics Dashboard
 
 A modern business analytics dashboard built with Spring Boot, JSF, and PrimeFaces.
+EVERYTHING WORKS!!!100%
 
 ## Features
 
